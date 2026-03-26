@@ -15,8 +15,8 @@
 5. [Configuration](#5-configuration)
 6. [Usage & Reproducibility](#6-usage--reproducibility)
    - [Interactive Mode](#61-interactive-mode)
-   - [Single Run — Auto k/c](#62-single-run--auto-kc)
-   - [Single Run — Manual k/c](#63-single-run--manual-kc)
+   - [Single Run - Auto k/c](#62-single-run--auto-kc)
+   - [Single Run - Manual k/c](#63-single-run--manual-kc)
    - [Experiment Batches](#64-experiment-batches)
 7. [Output Structure](#7-output-structure)
 8. [Algorithm Details](#8-algorithm-details)
@@ -33,8 +33,8 @@
 
 The **(c,k)-Anonymisation Pipeline** is a research tool for applying rigorous, auditable privacy-preserving transformations to structured medical datasets. It is designed to satisfy two complementary privacy guarantees simultaneously:
 
-- **k-Anonymity** — every individual record is indistinguishable from at least *k* − 1 others based on quasi-identifier (QI) attributes, protecting against linkage attacks.
-- **c-Diversity** — within each equivalence class, at least *c* distinct values are present for every sensitive attribute (SA), protecting against inference and homogeneity attacks.
+- **k-Anonymity** - every individual record is indistinguishable from at least *k* − 1 others based on quasi-identifier (QI) attributes, protecting against linkage attacks.
+- **c-Diversity** - within each equivalence class, at least *c* distinct values are present for every sensitive attribute (SA), protecting against inference and homogeneity attacks.
 
 The pipeline was developed as part of a research investigation into privacy-utility trade-offs in clinical data sharing. It is intended for use by researchers, data custodians, and privacy engineers who need a transparent, reproducible anonymisation workflow that meets the standards expected in medical informatics and data governance literature.
 
@@ -88,13 +88,13 @@ This reframing makes c directly interpretable as a diversity count, analogous to
 ```
 ck-anonymisation/
 │
-├── cli.py                        # Main entry point — all modes accessible from here
+├── cli.py                        # Main entry point - all modes accessible from here
 │
 ├── configs/
 │   └── config.json               # All configuration: paths, columns, experiments
 │
 ├── dataset/
-│   └── sample_medical_dataset.csv   # Input dataset (not committed — see note)
+│   └── sample_medical_dataset.csv   # Input dataset (not committed - see note)
 │
 ├── src/
 │   ├── ck_anonymisation.py       # Core 8-step anonymisation pipeline
@@ -209,9 +209,9 @@ Each entry in `experiments` defines one batch run:
 { "set": "A", "k": 10, "c": 3 }
 ```
 
-- `set` — label used in the output folder name (e.g., `Exp_A_k10_c3`)
-- `k` — minimum equivalence class size (integer ≥ 2)
-- `c` — minimum distinct SA values per bucket per column (integer ≥ 1)
+- `set` - label used in the output folder name (e.g., `Exp_A_k10_c3`)
+- `k` - minimum equivalence class size (integer ≥ 2)
+- `c` - minimum distinct SA values per bucket per column (integer ≥ 1)
 
 Add, remove, or modify entries freely. No code changes required.
 
@@ -237,12 +237,12 @@ python cli.py
 
 ```
 ╔══════════════════════════════════════════════════════════╗
-║         (c,k)-Anonymisation Pipeline — CLI               ║
+║         (c,k)-Anonymisation Pipeline - CLI               ║
 ╚══════════════════════════════════════════════════════════╝
 
 ── Choose run mode ─────────────────────────────────────────
-    [1]  Anonymise   — run a single anonymisation job
-    [2]  Experiments — run all batches defined in configs/config.json
+    [1]  Anonymise   - run a single anonymisation job
+    [2]  Experiments - run all batches defined in configs/config.json
 
   Your choice [1/2]: 1
 
@@ -256,8 +256,8 @@ python cli.py
   Your choice (number or 0 for custom path): 1
 
 ── Step 2: Choose how k and c are determined ───────────────
-    [1]  Auto   — derive k and c from the dataset properties
-    [2]  Manual — specify k and c values yourself
+    [1]  Auto   - derive k and c from the dataset properties
+    [2]  Manual - specify k and c values yourself
 
   Your choice [1/2]: 1
 
@@ -273,7 +273,7 @@ python cli.py
 
 ---
 
-### 6.2 Single Run — Auto k/c
+### 6.2 Single Run - Auto k/c
 
 k and c are derived automatically from dataset properties (size, dimensionality, SA diversity).
 
@@ -323,7 +323,7 @@ python cli.py --file dataset/sample_medical_dataset.csv --auto
 
 ---
 
-### 6.3 Single Run — Manual k/c
+### 6.3 Single Run - Manual k/c
 
 For precise parameter control in research experiments.
 
@@ -545,7 +545,7 @@ For each GT bucket of size *n*:
 
 1. Place the CSV in `dataset/`
 2. Update `configs/config.json`: set `file_paths.input_csv`, `quasi_identifiers`, and `sensitive_attributes`
-3. Run as normal — no code changes required
+3. Run as normal - no code changes required
 
 ### Adding New Experiments
 
