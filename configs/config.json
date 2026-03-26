@@ -1,0 +1,36 @@
+{
+  "_comment": "Configuration for the (c,k)-Anonymisation pipeline. Paths are relative to the project root.",
+
+  "file_paths": {
+    "input_csv": "dataset/sample_medical_dataset.csv"
+  },
+
+  "attributes": {
+    "quasi_identifiers": [
+      "gender",
+      "age",
+      "zip",
+      "weight",
+      "height"
+    ],
+    "sensitive_attributes": [
+      "occupation",
+      "cancer_type",
+      "cancer_treatment",
+      "symptoms",
+      "diagnosis_method"
+    ]
+  },
+
+  "random_seed": 42,
+
+  "experiments": [
+    { "set": "A", "k": 3,  "c": 2 },
+    { "set": "A", "k": 5,  "c": 2 },
+    { "set": "A", "k": 7,  "c": 2 },
+    { "set": "A", "k": 10, "c": 2 },
+    { "set": "A", "k": 15, "c": 2 },
+    { "set": "B", "k": 7,  "c": 3 },
+    { "set": "B", "k": 7,  "c": 4 }
+  ]
+}
