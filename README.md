@@ -2,6 +2,8 @@
 
 > A research-grade, end-to-end privacy-preserving anonymisation pipeline combining **k-Anonymity** and **c-Diversity** for structured medical datasets.
 
+> **Implementation note:** This project is an independent Python implementation based on the paper *"Privacy Preserving for Multiple Sensitive Attributes Against Fingerprint Correlation Attack Satisfying c-Diversity."* Since no official code was provided by the authors, this implementation was developed from scratch from the methods described in the paper.
+
 ---
 
 ## Table of Contents
