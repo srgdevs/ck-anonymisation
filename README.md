@@ -599,12 +599,11 @@ No real patient records are included in this project dataset.
 | Name | Role | Institution |
 |---|---|---|
 | **Seyed R. Ghorashi** | Lead researcher & software developer | Charles Sturt University |
-| **Tanveer Zia** | Principal Supervisor (research supervision, methodological guidance, conceptual feedback, and manuscript review) | University of Notre Dame Australia |
-| **Michael Bewong** | Co-supervisor (research guidance, conceptual feedback, and manuscript review) | Charles Sturt University |
+
 
 ### Acknowledgements
 
-This research was conducted as part of postgraduate research at **Charles Sturt University**. The author acknowledges the academic supervision and manuscript support provided by **Tanveer Zia** and **Michael Bewong**.
+This research was conducted as part of postgraduate research at **Charles Sturt University**. 
 
 The work has been supported by the Cyber Security Research Centre Limited, whose activities are partially funded by the Australian Government's Cooperative Research Centres Programme P23_000_19_0027.
 
