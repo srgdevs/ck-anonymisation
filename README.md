@@ -609,7 +609,7 @@ The work has been supported by the Cyber Security Research Centre Limited, whose
 
 The synthetic medical dataset used for testing was generated independently and contains no real patient data.
 
-> To add yourself as a contributor, please open a pull request or contact the corresponding author.
+
 
 ---
 
