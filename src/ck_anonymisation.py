@@ -648,6 +648,9 @@ def enforce_c_diversity(
     safb_records  = []
     expected_ids  = set(st_df["BucketID"].unique())
 
+    # Pre-compute global value pool per SA column for use when a bucket lacks diversity
+    global_pool = {col: st_df[col].dropna().unique().tolist() for col in sa_cols}
+
     for bucket_id, group in st_df.groupby("BucketID"):
         sa_group = group[sa_cols].copy()
 
@@ -664,8 +667,10 @@ def enforce_c_diversity(
             unique_vals = deduped[col].dropna().unique().tolist()
             if len(unique_vals) < min_distinct:
                 shortage = min_distinct - len(unique_vals)
+                missing_vals = [v for v in global_pool[col] if v not in unique_vals]
+                pool = missing_vals if missing_vals else global_pool[col]
                 extra = pd.Series(
-                    np.random.choice(unique_vals, size=shortage, replace=True),
+                    np.random.choice(pool, size=shortage, replace=True),
                     name=col,
                 )
                 patch = pd.DataFrame({c_: [""] * shortage for c_ in sa_cols})
@@ -911,7 +916,7 @@ def export_partitions(
     gt_path   = run_folder / "gt_partition.csv"
     safb_path = run_folder / "safb_partition.csv"
 
-    gt_df.to_csv(gt_path,     index=True)
+    gt_df.to_csv(gt_path,     index=False)
     safb_df.to_csv(safb_path, index=False)
 
     print(
